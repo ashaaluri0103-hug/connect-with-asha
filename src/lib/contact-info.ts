@@ -6,16 +6,19 @@ export const CONTACT_INFO = {
   role: "Python Developer",
   email: "ashaaluri0103@gmail.com",
   linkedIn: {
-    url: "https://www.linkedin.com/in/asha-aluri-30147742",
+    url: "https://www.linkedin.com/in/asha-aluri-30147742b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     displayName: "Asha Aluri",
   },
   github: {
     url: "https://github.com/ashaaluri0103-hug",
     displayName: "GitHub Profile",
   },
-  // Place the resume PDF at public/asha-aluri-resume.pdf to enable the download.
+  // Resume download:
+  // 1. Upload the PDF to the project as `public/Asha_Aluri_Resume.pdf`
+  // 2. Flip `available` to true — the Download Resume button then appears.
   resume: {
-    url: "/asha-aluri-resume.pdf",
-    fileName: "Asha-Aluri-Resume.pdf",
+    available: false,
+    url: "/Asha_Aluri_Resume.pdf",
+    fileName: "Asha_Aluri_Resume.pdf",
   },
 } as const;
