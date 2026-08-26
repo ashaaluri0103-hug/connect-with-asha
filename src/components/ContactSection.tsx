@@ -87,11 +87,16 @@ export function ContactSection() {
   });
 
   const onSubmit = async (_data: ContactFormValues) => {
-    // Client-side only submission. No backend email service is configured,
-    // so we show a success message without claiming the email was delivered.
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setIsSubmitted(true);
-    reset();
+    // Client-side only. No backend email service is configured, so the form
+    // validates and confirms the details without claiming email delivery.
+    setSubmitError(null);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 600));
+      setIsSubmitted(true);
+      reset();
+    } catch {
+      setSubmitError("Something went wrong. Please email me directly instead.");
+    }
   };
 
   return (
