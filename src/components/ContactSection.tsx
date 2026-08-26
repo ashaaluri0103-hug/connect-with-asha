@@ -69,6 +69,7 @@ const contactLinks = [
 
 export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -86,11 +87,16 @@ export function ContactSection() {
   });
 
   const onSubmit = async (_data: ContactFormValues) => {
-    // Client-side only submission. No backend email service is configured,
-    // so we show a success message without claiming the email was delivered.
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setIsSubmitted(true);
-    reset();
+    // Client-side only. No backend email service is configured, so the form
+    // validates and confirms the details without claiming email delivery.
+    setSubmitError(null);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 600));
+      setIsSubmitted(true);
+      reset();
+    } catch {
+      setSubmitError("Something went wrong. Please email me directly instead.");
+    }
   };
 
   return (
@@ -105,14 +111,16 @@ export function ContactSection() {
               Have an opportunity, project idea, or simply want to connect? Feel
               free to reach out.
             </p>
-            <div className="pt-2">
-              <Button asChild variant="outline">
-                <a href={CONTACT_INFO.resume.url} download={CONTACT_INFO.resume.fileName}>
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  Download Resume
-                </a>
-              </Button>
-            </div>
+            {CONTACT_INFO.resume.available && (
+              <div className="pt-2">
+                <Button asChild variant="outline">
+                  <a href={CONTACT_INFO.resume.url} download={CONTACT_INFO.resume.fileName}>
+                    <Download className="h-4 w-4" aria-hidden="true" />
+                    Download Resume
+                  </a>
+                </Button>
+              </div>
+            )}
           </div>
 
 
@@ -237,13 +245,19 @@ export function ContactSection() {
                   )}
                 </div>
 
+                {submitError && (
+                  <p role="alert" className="text-sm text-destructive">
+                    {submitError}
+                  </p>
+                )}
+
                 <Button
                   type="submit"
                   className="w-full"
                   disabled={isSubmitting}
                 >
                   <Send className="h-4 w-4" aria-hidden="true" />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             )}
