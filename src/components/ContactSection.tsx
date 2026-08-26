@@ -69,6 +69,7 @@ const contactLinks = [
 
 export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
