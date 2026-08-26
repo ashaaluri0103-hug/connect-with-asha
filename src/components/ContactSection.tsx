@@ -130,11 +130,11 @@ export function ContactSection() {
                 >
                   <link.icon className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <div className="ml-4 flex flex-col text-left">
+                <div className="ml-4 flex min-w-0 flex-col text-left">
                   <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                     {link.label}
                   </span>
-                  <span className="text-sm font-medium text-card-foreground">
+                  <span className="truncate text-sm font-medium text-card-foreground">
                     {link.value}
                   </span>
                 </div>
