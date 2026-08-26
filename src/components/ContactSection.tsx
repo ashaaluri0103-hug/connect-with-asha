@@ -38,6 +38,35 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
+const contactLinks = [
+  {
+    label: "Email",
+    value: CONTACT_INFO.email,
+    href: `mailto:${CONTACT_INFO.email}`,
+    icon: Mail,
+    accentClass: "bg-primary/10 text-primary",
+    hoverBorderClass: "hover:border-primary/50",
+  },
+  {
+    label: "LinkedIn",
+    value: CONTACT_INFO.linkedIn.displayName,
+    href: CONTACT_INFO.linkedIn.url,
+    icon: Linkedin,
+    accentClass: "bg-chart-2/10 text-chart-2",
+    hoverBorderClass: "hover:border-chart-2/50",
+    external: true,
+  },
+  {
+    label: "GitHub",
+    value: CONTACT_INFO.github.displayName,
+    href: CONTACT_INFO.github.url,
+    icon: Github,
+    accentClass: "bg-foreground/10 text-foreground",
+    hoverBorderClass: "hover:border-foreground/50",
+    external: true,
+  },
+];
+
 export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -66,86 +95,44 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="w-full py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Contact details */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Let&apos;s Connect
-              </h2>
-              <p className="max-w-md text-lg text-muted-foreground">
-                Have an opportunity, project idea, or simply want to connect?
-                Feel free to reach out.
-              </p>
-            </div>
-
-            <dl className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Mail className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <dt className="text-sm font-medium text-muted-foreground">
-                    Email
-                  </dt>
-                  <dd className="mt-0.5">
-                    <a
-                      href={`mailto:${CONTACT_INFO.email}`}
-                      className="text-base font-medium text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
-                    >
-                      {CONTACT_INFO.email}
-                    </a>
-                  </dd>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Linkedin className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <dt className="text-sm font-medium text-muted-foreground">
-                    LinkedIn
-                  </dt>
-                  <dd className="mt-0.5">
-                    <a
-                      href={CONTACT_INFO.linkedIn.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-base font-medium text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
-                    >
-                      {CONTACT_INFO.linkedIn.displayName}
-                    </a>
-                  </dd>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Github className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <dt className="text-sm font-medium text-muted-foreground">
-                    GitHub
-                  </dt>
-                  <dd className="mt-0.5">
-                    <a
-                      href={CONTACT_INFO.github.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-base font-medium text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
-                    >
-                      {CONTACT_INFO.github.displayName}
-                    </a>
-                  </dd>
-                </div>
-              </div>
-            </dl>
+      <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+        <div className="space-y-10 text-center">
+          <div className="space-y-3">
+            <h2 className="text-4xl font-extrabold tracking-tighter gradient-text sm:text-5xl">
+              Let&apos;s Connect
+            </h2>
+            <p className="font-mono text-sm text-muted-foreground">
+              Have an opportunity, project idea, or simply want to connect?
+            </p>
           </div>
 
-          {/* Contact form */}
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+          <div className="grid gap-4">
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                className={`group flex items-center rounded-2xl border border-border bg-card p-4 backdrop-blur-sm transition-all duration-300 ${link.hoverBorderClass}`}
+              >
+                <div
+                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-110 ${link.accentClass}`}
+                >
+                  <link.icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div className="ml-4 flex flex-col text-left">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                    {link.label}
+                  </span>
+                  <span className="text-sm font-medium text-card-foreground">
+                    {link.value}
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="rounded-2xl border border-border bg-card p-6 text-left shadow-sm backdrop-blur-sm sm:p-8">
             {isSubmitted ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -154,7 +141,7 @@ export function ContactSection() {
                 <h3 className="mt-6 text-xl font-semibold text-card-foreground">
                   Message received
                 </h3>
-                <p className="mt-2 max-w-xs text-muted-foreground">
+                <p className="mt-2 max-w-xs text-sm text-muted-foreground">
                   Thank you for reaching out. I&apos;ll get back to you as soon
                   as possible.
                 </p>
