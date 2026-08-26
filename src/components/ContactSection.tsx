@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Mail, Linkedin, Github, Send, CheckCircle } from "lucide-react";
+import { Mail, Linkedin, Github, Send, CheckCircle, Download } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -102,9 +102,19 @@ export function ContactSection() {
               Let&apos;s Connect
             </h2>
             <p className="font-mono text-sm text-muted-foreground">
-              Have an opportunity, project idea, or simply want to connect?
+              Have an opportunity, project idea, or simply want to connect? Feel
+              free to reach out.
             </p>
+            <div className="pt-2">
+              <Button asChild variant="outline">
+                <a href={CONTACT_INFO.resume.url} download={CONTACT_INFO.resume.fileName}>
+                  <Download className="h-4 w-4" aria-hidden="true" />
+                  Download Resume
+                </a>
+              </Button>
+            </div>
           </div>
+
 
           <div className="grid gap-4">
             {contactLinks.map((link) => (
