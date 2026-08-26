@@ -105,14 +105,16 @@ export function ContactSection() {
               Have an opportunity, project idea, or simply want to connect? Feel
               free to reach out.
             </p>
-            <div className="pt-2">
-              <Button asChild variant="outline">
-                <a href={CONTACT_INFO.resume.url} download={CONTACT_INFO.resume.fileName}>
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  Download Resume
-                </a>
-              </Button>
-            </div>
+            {CONTACT_INFO.resume.available && (
+              <div className="pt-2">
+                <Button asChild variant="outline">
+                  <a href={CONTACT_INFO.resume.url} download={CONTACT_INFO.resume.fileName}>
+                    <Download className="h-4 w-4" aria-hidden="true" />
+                    Download Resume
+                  </a>
+                </Button>
+              </div>
+            )}
           </div>
 
 
