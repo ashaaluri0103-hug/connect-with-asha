@@ -245,13 +245,19 @@ export function ContactSection() {
                   )}
                 </div>
 
+                {submitError && (
+                  <p role="alert" className="text-sm text-destructive">
+                    {submitError}
+                  </p>
+                )}
+
                 <Button
                   type="submit"
                   className="w-full"
                   disabled={isSubmitting}
                 >
                   <Send className="h-4 w-4" aria-hidden="true" />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             )}
