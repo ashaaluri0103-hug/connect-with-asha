@@ -1,3 +1,5 @@
+import { Mail, Linkedin, Github } from "lucide-react";
+
 import { CONTACT_INFO } from "@/lib/contact-info";
 
 export function Footer() {
@@ -19,16 +21,45 @@ export function Footer() {
             <p className="text-xl font-bold tracking-tight text-foreground">
               {CONTACT_INFO.name}
             </p>
-            <p className="mt-1 font-mono text-[10px] text-muted-foreground">
-              &copy; {currentYear} {CONTACT_INFO.name}. All rights reserved.
-            </p>
+            <a
+              href={`mailto:${CONTACT_INFO.email}`}
+              className="mt-2 inline-block max-w-full truncate font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
+            >
+              {CONTACT_INFO.email}
+            </a>
           </div>
 
-          <div className="flex gap-4">
-            <div className="h-1 w-1 rounded-full bg-primary/40" />
-            <div className="h-1 w-1 rounded-full bg-chart-2/40" />
-            <div className="h-1 w-1 rounded-full bg-chart-3/40" />
+          <div className="flex items-center gap-3">
+            <a
+              href={`mailto:${CONTACT_INFO.email}`}
+              aria-label="Email Asha Aluri"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              <Mail className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href={CONTACT_INFO.linkedIn.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-chart-2/50 hover:text-chart-2"
+            >
+              <Linkedin className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href={CONTACT_INFO.github.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-foreground/50 hover:text-foreground"
+            >
+              <Github className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
+
+          <p className="text-center font-mono text-[10px] text-muted-foreground">
+            &copy; {currentYear} {CONTACT_INFO.name}. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
