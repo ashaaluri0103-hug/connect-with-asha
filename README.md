@@ -1,104 +1,66 @@
-# Connect & Create
+# Asha Aluri — Python Developer
 
-CONTACT INFORMATION — USE THESE EXACT DETAILS
+A modern personal portfolio website showcasing my skills, projects, education, resume, and contact information.
 
-Email
+## 🌐 Live Portfolio
 
-ashaalluri0103@gmail.com
+https://connect-with-asha.lovable.app
 
-Make the email clickable using a "mailto:" link.
+## 👩‍💻 About
 
-LinkedIn
+I am a Computer Science and Engineering student and aspiring Python Developer interested in software development, web technologies, problem solving, and building practical projects.
 
-Use this profile:
+## 🛠️ Technical Skills
 
-https://www.linkedin.com/in/asha-aluri-30147742
+- Python
+- C
+- Java
+- HTML
+- CSS
+- JavaScript
 
-The LinkedIn icon/button should open the profile in a new browser tab.
+## 🚀 Featured Project
 
-GitHub
+### Placement Management System
 
-The currently provided URL is:
+A web-based project designed to organize and manage placement-related information efficiently.
 
-https://github.com/
+Technology focus:
 
-This is the general GitHub homepage, not Asha's personal GitHub profile.
+- Python
+- Web Development
 
-Therefore:
+Only mention additional technologies if they are actually implemented in the project.
 
-- Do NOT invent a GitHub username.
-- Do NOT create a fake GitHub URL.
-- Keep the GitHub button configurable.
-- Use "https://github.com/" temporarily if necessary.
-- Structure the code so the personal GitHub profile URL can be changed easily later.
+## 🎓 Education
 
-Contact Section
+B.Tech in Computer Science and Engineering
+Sree Vahini Institute of Science and Technology
+Final Year
 
-Display:
+## 🔗 Connect With Me
 
-Let's Connect
+### LinkedIn
 
-«Have an opportunity, project idea, or simply want to connect? Feel free to reach out.»
+https://www.linkedin.com/in/asha-aluri-30147742b?utm_source=share_via&utm_content=profile&utm_medium=member_android
 
-Contact details:
+### GitHub
 
-Email: ashaalluri0103@gmail.com
+https://github.com/ashaaluri0103-hug
 
-LinkedIn: Asha Aluri
+### Email
 
-GitHub: GitHub Profile
+ashaaluri0103@gmail.com
 
-Include a professional contact form with:
+## 📄 Resume
 
-- Name
-- Email
-- Subject
-- Message
-- Send Message
+My resume is available through my live portfolio website.
 
-Validate all fields properly.
+## 📌 Project Information
 
-After successful submission, show a clean success message.
+This repository contains the source code for my personal developer portfolio.
 
-Do not claim that emails are actually being delivered unless a backend/email service is configured.
+## 🌐 Portfolio
 
-Footer
-
-Display:
-
-Asha Aluri
-
-Python Developer
-
-Email:
-ashaalluri0103@gmail.com
-
-LinkedIn icon
-
-GitHub icon
-
-Copyright:
-© 2026 Asha Aluri. All rights reserved.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://connect-with-asha.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/6328b7a2-5384-4150-95b3-5abc0a5afc3b).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+Live Website:
+https://connect-with-asha.lovable.app
